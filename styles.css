@@ -1,0 +1,174 @@
+/* Color
+celeste: #219C90
+amarillo: #E9B824
+naranja: #EE9322
+rojo: #D83F31
+verde: #D2DE32
+*/
+/* -------- Estilos generales -------- */
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0;
+  background-color: #219C90;
+  font-size: 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+img {
+  max-width: 100%;
+}
+.correcto:active {
+  background-color: greenyellow;
+}
+.falso:active {
+  background-color: red;
+}
+.bold {
+  font-weight: bold;
+}
+/* -------- Header -------- */
+header {
+  height: auto;
+  border-bottom: 1px solid #f5f5f5;
+}
+h1 {
+  text-align: center;
+  font-size: 3.6rem;
+}
+/* -------- Navbar -------- */
+nav {
+  height: auto;
+  padding: 1.8rem 0;
+  position: relative;
+  border-bottom: 1px solid #f5f5f5;
+}
+nav p {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.8rem;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  width: fit-content;
+  margin: 0 auto;
+}
+li {
+  display: inline-block;
+}
+li:nth-child(2) {
+  margin: 0 2rem;
+}
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 1.2rem;
+  color: #050505;
+}
+#facil {
+  background-color: #e7e70b;
+}
+#medio {
+  background-color: #E9B824;
+}
+#dificil {
+  background-color: #EE9322;
+}
+#contactar {
+  position: absolute;
+  right: 8px;
+  background-color: #e7e70b;
+  border-radius: 1.2rem;
+}
+/* -------- Main -------- */
+main {
+  height: auto;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #f5f5f5;
+}
+main figure {
+  text-align: center;
+}
+.contador-de-preguntas {
+  margin-left: 20px;
+  font-size: 2.2rem;
+}
+#display-bandera img {
+  max-width: 400px;
+  border-radius: 1rem;
+}
+.pregunta {
+  text-align: center;
+}
+.opciones{
+  width: fit-content;
+  margin: 0 auto;
+}
+.ops-izquierdo,
+.ops-derecho {
+  display: inline-block;
+  padding: 1rem;
+  background-color: #e7e70b;
+}
+button {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding: .8rem;
+  border-radius: 1rem;
+  text-align: left;
+  font-size: 3rem;
+}
+.op-a,
+.op-c {
+  margin-bottom: 1rem;
+}
+/* -------- FOOTER -------- */
+footer {
+  background-color: #EE9322;
+  padding: 2rem 0;
+  text-align: center;
+}
+footer p {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+footer p:last-child {
+  margin: 0;
+}
+@media (max-width: 600px) {
+  .logo {
+    display: block;
+  }
+  nav {
+    height: 16rem;
+  }
+  li:nth-child(2) {
+    margin: 0 .2rem;
+  }
+  nav a {
+    font-size: 2.8rem;
+    padding: 1rem .8rem;  
+  }
+  #contactar {
+    bottom: 14px;
+  }
+  #display-bandera img {
+    max-width: 100%;
+  }
+  .ops-izquierdo,
+  .ops-derecho {
+    width: 100%;
+  }
+  button {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    max-width: 90%;
+  }
+}

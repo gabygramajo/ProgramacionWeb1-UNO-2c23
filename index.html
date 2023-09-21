@@ -10,34 +10,68 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+  <header>
+    
+    <h1>🚩🚩🚩🚩🚩🚩 <span class="logo">Trivia de Banderas</span> 🚩🚩🚩🚩🚩🚩</h1>
+
+  </header>
+
   <nav>
+    <p>Elegir dificultad</p>
     <ul>
       <li>
-        <a href="#">Nivel 1</a></li>
+        <a id="facil" href="#">Fácil</a>
+      </li>
       <li>
-        <a href="#">Nivel 2</a></li>
+        <a id="medio" href="#">Medio</a>
+      </li>
       <li>
-        <a href="#">Nivel 3</a></li>
+        <a id="dificil" href="#">Díficil</a>
+      </li>
+      <li id="contactar">
+        <a href="#">Contactar</a>
+      </li>
     </ul>
   </nav>
-  
-  <header>
-    <h1>Trivia de Banderas</h1>
-  </header>
 
   <main>
 
     <section>
-      <h2>Nivel 1</h2>
+      <h2 class="contador-de-preguntas">Pregunta 1 de 5.</h2>
+      
+      <div id="display-bandera">
+        <figure>
+          <img src="./images/uruguay.svg" alt="Bandera de celeste y blanca">
+          <figcaption>
+            <p>Pista: 🥩 🧉 ⚽</p>
+          </figcaption>
+        </figure>
+        <audio controls autoplay muted loop>
+          <source src="sounds/song2.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      
+      <h2 class="pregunta">¿A qué país corresponde la bandera? 🤔</h2>
+      <div class="opciones">
+        <div class="ops-izquierdo">
+          <button class="op-a falso">A = Argentina</button>
+          <button class="op-b falso">B = Honduras</button>
+        </div>
+        <div class="ops-derecho">
+          <button class="op-c falso">C = Escocia</button>
+          <button class="op-d correcto">D = Uruguay</button>
+        </div>
+      </div>
     </section>
 
   </main>
 
   <footer>
     <p>Programación Web 1 - 2do cuatrimestre 2023</p>
-    <p>Profesor: <span>Pablo Miguel Angel Pandolfo</span></p>
-    <p>Estudiante <span>Gabriel Omar Gramajo</span></p>
+    <p>Profesor: <span class="bold">Pablo Miguel Angel Pandolfo</span></p>
+    <p>Estudiante <span class="bold">Gabriel Omar Gramajo</span></p>
   </footer>
 
 </body>
 </html>
+<!--  -->
