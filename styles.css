@@ -1,25 +1,26 @@
-/* Color
-celeste: #219C90
-amarillo: #E9B824
-naranja: #EE9322
-rojo: #D83F31
-verde: #D2DE32
-*/
 /* -------- Estilos generales -------- */
 html {
   font-size: 62.5%;
 }
 body {
   margin: 0;
-  background-color: #219C90;
+  background-color: #F1EFEF;
   font-size: 2rem;
   font-family: Arial, Helvetica, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3 {
+  margin: .8rem 0;
 }
 img {
   max-width: 100%;
 }
 .correcto:active {
-  background-color: greenyellow;
+  background-color: #42c40e;
 }
 .falso:active {
   background-color: red;
@@ -27,21 +28,41 @@ img {
 .bold {
   font-weight: bold;
 }
+.clear {
+  clear: both;
+}
+nav,
+aside,
+#main {
+  background-color: #F1EFEF;
+}
 /* -------- Header -------- */
 header {
-  height: auto;
-  border-bottom: 1px solid #f5f5f5;
+  height: 76px;
+  background-color: #3085C3;
+  padding: 1rem 0;
+  background-image: url('https://img.freepik.com/fotos-premium/banderas-nacionales-diferentes-paises-mundo-monton-disperso_113767-1771.jpg');
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat-x;
 }
 h1 {
   text-align: center;
   font-size: 3.6rem;
+  font-family: cursive, Helvetica, sans-serif;
+  width: fit-content;
+  margin: 0 auto;
+  padding: .2rem .8rem;
+  background-color: #F1EFEF;
+  border-radius: 1rem;
 }
+
 /* -------- Navbar -------- */
 nav {
   height: auto;
   padding: 1.8rem 0;
   position: relative;
-  border-bottom: 1px solid #f5f5f5;
+  border-bottom: 2px solid #dcdcdc;
 }
 nav p {
   font-size: 2.8rem;
@@ -84,11 +105,32 @@ nav a {
   background-color: #e7e70b;
   border-radius: 1.2rem;
 }
+/* -------- Aside -------- */
+aside {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 100%;
+  padding: 3rem 1rem 0;
+  /* margin-top: 2rem; */
+  float: left;
+  width: 25%;
+}
+
+form label {
+  display: block;
+}
+#ranking {
+  margin: 2rem 0;
+}
+
 /* -------- Main -------- */
 main {
+  float: left;
+  width: 75%;
   height: auto;
-  padding-bottom: 2rem;
-  border-bottom: 1px solid #f5f5f5;
+  padding: 2rem;
+  border-left: 2px solid #dcdcdc;
+  box-sizing: border-box;
 }
 main figure {
   text-align: center;
@@ -97,7 +139,24 @@ main figure {
   margin-left: 20px;
   font-size: 2.2rem;
 }
-#display-bandera img {
+#carrusel-bandera {
+  overflow: hidden;
+  height: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 1rem;
+}
+article {
+  display: inline-block;
+  width: 100%;
+}
+figure {
+  margin: 0;
+  padding: 3rem;
+  border-radius: 1rem;
+  border: 2px solid #dcdcdc;
+}
+#carrusel-bandera img {
   max-width: 400px;
   border-radius: 1rem;
 }
@@ -111,8 +170,9 @@ main figure {
 .ops-izquierdo,
 .ops-derecho {
   display: inline-block;
+  width: 50%;
   padding: 1rem;
-  background-color: #e7e70b;
+  /* background-color: #e7e70b; */
 }
 button {
   cursor: pointer;
@@ -123,6 +183,11 @@ button {
   border-radius: 1rem;
   text-align: left;
   font-size: 3rem;
+  background-color: #3085C3;
+  color: #F1EFEF;
+}
+button:hover {
+  background-color: #12486B;
 }
 .op-a,
 .op-c {
@@ -130,9 +195,21 @@ button {
 }
 /* -------- FOOTER -------- */
 footer {
-  background-color: #EE9322;
+  clear: both;
+  background-color: #3085C3;
   padding: 2rem 0;
   text-align: center;
+  background-image: url('https://e0.pxfuel.com/wallpapers/187/122/desktop-wallpaper-world-flags.jpg');
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat-x;
+}
+footer .informacion {
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #F1EFEF;
+  padding: .4rem .8rem;
+  border-radius: 1rem;
 }
 footer p {
   margin-top: 0;
@@ -158,7 +235,7 @@ footer p:last-child {
   #contactar {
     bottom: 14px;
   }
-  #display-bandera img {
+  #carrusel-bandera img {
     max-width: 100%;
   }
   .ops-izquierdo,
@@ -172,3 +249,10 @@ footer p:last-child {
     max-width: 90%;
   }
 }
+/* Color
+celeste: #219C90
+amarillo: #E9B824
+naranja: #EE9322
+rojo: #D83F31
+verde: #D2DE32
+*/
