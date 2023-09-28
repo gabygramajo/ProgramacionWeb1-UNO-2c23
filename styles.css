@@ -327,7 +327,7 @@ button:hover {
 footer {
   clear: both;
   background-color: #3085C3;
-  padding: 2rem 0;
+  padding: 1rem 0;
   text-align: center;
   background-image: url(./images/footer.bg.jpg);
 }
@@ -335,15 +335,23 @@ footer .informacion {
   max-width: 442px;
   margin: 0 auto;
   background-color: #F1EFEF;
+  border: 2px solid #050505;
   padding: .4rem .8rem;
   border-radius: 1rem;
 }
 footer p {
   margin-top: 0;
-  margin-bottom: 2rem;
+  margin-bottom: .6rem;
 }
 footer p:last-child {
   margin: 0;
+}
+#link-repo {
+  width: 100px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: #050505;
+  border-radius: 1rem;
 }
 
 /* Media querys */
