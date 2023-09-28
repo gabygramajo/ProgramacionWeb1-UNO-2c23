@@ -135,13 +135,19 @@ nav a {
   color: #050505;
 }
 nav #facil {
-  background-color: #e7e70b;
+  background-color: #050505;
+  color: #e7e70b;
+  border: 2px solid #e7e70b;
 }
 nav #medio {
-  background-color: #E9B824;
+  background-color: #050505;
+  color: #E9B824;
+  border: 2px solid #E9B824;
 }
 nav #dificil {
-  background-color: #EE9322;
+  background-color: #050505;
+  color: #EE9322;
+  border: 2px solid #EE9322;
 }
 #facil, 
 #medio,
