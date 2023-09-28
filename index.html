@@ -1,37 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Proyecto para la materia Programación Web 1"/>
-  <meta name="keywords" content="HTML, CSS, Javascript" />
+  <meta name="description" content="Proyecto para la materia Programación Web 1, trata de un juego sobre de banderas en el que tienes que acertar que a qué país pertenece una bandera"/>
+  <meta name="keywords" content="HTML, CSS, Javascript, juego de banderas, trivia de banderas" />
   <meta name="author" content="Gabriel Gramajo" />
-  <title>Trivia de Banderas</title>
+  <title>¿Qué País soy?</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <header>
-    <h1>Trivia de Banderas</h1>
-    <!-- <h1> 
-      <span>
-        <img src="images/canada.svg" alt="bandera" width="50">
-        <img src="images/india.svg" alt="bandera" width="50">
-        <img src="images/oceania-australia.svg" alt="bandera" width="50">
-        <img src="images/united_States.svg" alt="bandera" width="50">
-
-      </span> 
-      <span class="logo">
-        Trivia de Banderas
-      </span>
-
-      <span>
-        <img src="images/canada.svg" alt="bandera" width="50">
-        <img src="images/india.svg" alt="bandera" width="50">
-        <img src="images/oceania-australia.svg" alt="bandera" width="50">
-        <img src="images/united_States.svg" alt="bandera" width="50">
-      </span>
-    </h1> -->
-
+    <h1>¿Qué País soy?</h1>
   </header>
 
   <nav>
@@ -47,24 +27,25 @@
         <a id="dificil" href="#">Díficil</a>
       </li>
       <li id="contactar">
-        <a href="#">Contactar</a>
+        <a href="#formulario-contacto">Contactar</a>
       </li>
     </ul>
   </nav>
 
   <aside>
 
-    <div id="datos-usuario">
-      <form method="post">
+    <div id="nombre-usuario">
+      <form action="#" method="post">
         <label for="nickname">
           Nickname:
         </label>
-        <input type="text" id="nickname">
-        <input type="submit" value="Ingresar" placeholder="Ej: Lucas">
+        <input type="text" id="nickname" minlength="4" maxlength="8" placeholder="Entre 4 y 8 carácteres" required>
+        <input class="btn" type="submit" value="Ingresar Nickname">
       </form>
     </div>
 
     <div id="ranking">
+      <h2 id="Ranking">Ranking</h2>
       <table>
         <tr>
           <th>Posición</th>
@@ -72,49 +53,54 @@
           <th>Puntos</th>
         </tr>
 
-        <tr>
-          <td>1</td>
-          <td>Usuario 1</td>
+        <tr class="primer-puesto">
+          <td>1🥇</td>
+          <td>Lukas22</td>
           <td>100</td>
         </tr>
 
-        <tr>
-          <td>2</td>
-          <td>Usuario 1</td>
+        <tr class="segundo-puesto">
+          <td>2🥈</td>
+          <td>MarAzul</td>
           <td>70</td>
         </tr>
 
-        <tr>
-          <td>3</td>
-          <td>Usuario 1</td>
+        <tr class="tercer-puesto">
+          <td>3🥉</td>
+          <td>ElBatman</td>
           <td>50</td>
         </tr>
       </table>
     </div>
 
     <div id="formulario-contacto">
-      <form method="post">
+      <h2>Contáctanos</h2>
+      <form action="#" method="post">
         <label for="nombre">Nombre: </label>
-        <input type="text" id="nombre" placeholder="Lucas" name="nombre">
+        <input type="text" id="nombre" placeholder="Lucas" name="nombre" required>
 
         <label for="apellido">Apellido: </label>
-        <input type="text" id="apellido" placeholder="Lucas" name="apellido">
+        <input type="text" id="apellido" placeholder="Lucas" name="apellido" required>
 
         <label for="asunto">Asunto: </label>
-        <select name="asunto" id="asunto">
+        <select name="asunto" id="asunto" required>
           <option value="reportarbug" selected>reportar bug</option>
           <option value="contactar">contactar</option>
           <option value="otro">otro</option>
         </select>
-
+        <label for="description">Description</label>
+        <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+        <input class="btn" type="submit" value="Enviar">
       </form>
     </div>
   </aside>
 
-  <main>
-    <section>
+  <main id="main">
+    <section id="pantalla">
       <h2 class="contador-de-preguntas">Pregunta 1 de 5.</h2>
-      
+      <div id="vidas-disponibles">
+        <p>Vidas: <span id="vidas">❤❤❤</span></p>
+      </div>
       <div id="carrusel-bandera">
 
         <article>
@@ -226,7 +212,7 @@
     <div class="informacion">
       <p>Programación Web 1 - 2do cuatrimestre 2023</p>
       <p>Profesor: <span class="bold">Pablo Miguel Angel Pandolfo</span></p>
-      <p>Estudiante <span class="bold">Gabriel Omar Gramajo</span></p>
+      <p>Estudiante: <span class="bold">Gabriel Omar Gramajo</span></p>
     </div>
   </footer>
 
