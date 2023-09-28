@@ -6,14 +6,15 @@ body {
   margin: 0;
   background-color: #F1EFEF;
   font-size: 2rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: cursive, Helvetica, sans-serif;
 }
 * {
   box-sizing: border-box;
 }
 h1,
 h2,
-h3 {
+h3,
+p {
   margin: .8rem 0;
 }
 img {
@@ -31,26 +32,68 @@ img {
 .clear {
   clear: both;
 }
+.btn {
+  padding: .4rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  border-color: #F1EFEF;
+  background-color: #2d9b02;
+  color: rgb(245, 245, 245);
+}
 nav,
 aside,
 #main {
   background-color: #F1EFEF;
+}
+form label,
+form input {
+  background-color: #fffafa;
+  display: block;
+}
+input {
+  width: 100%;
+  margin-bottom: .4rem;
+}
+select,
+input[type="text"] {
+  font-size: 1.6rem;
+  padding: .4rem;
+  color: #171717;
+  border-radius: .4rem;
+}
+label:hover,
+select:hover,
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+textarea {
+  width: 100%;
+}
+header,
+footer {
+  background-size: auto;
+  background-position: center;
+  background-repeat: repeat-x;
+}
+nav,
+aside {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 /* -------- Header -------- */
 header {
   height: 76px;
   background-color: #3085C3;
   padding: 1rem 0;
-  background-image: url('https://img.freepik.com/fotos-premium/banderas-nacionales-diferentes-paises-mundo-monton-disperso_113767-1771.jpg');
-  background-size: auto;
-  background-position: center;
-  background-repeat: repeat-x;
+  background-image: url(./images/header-bg.jpg);
 }
 h1 {
   text-align: center;
   font-size: 3.6rem;
   font-family: cursive, Helvetica, sans-serif;
-  width: fit-content;
+  max-width: 348px;
   margin: 0 auto;
   padding: .2rem .8rem;
   background-color: #F1EFEF;
@@ -59,10 +102,11 @@ h1 {
 
 /* -------- Navbar -------- */
 nav {
-  height: auto;
+  height: 160px;
   padding: 1.8rem 0;
   position: relative;
   border-bottom: 2px solid #dcdcdc;
+  background-image: url(./images/navbar-bg.jpg);   
 }
 nav p {
   font-size: 2.8rem;
@@ -73,7 +117,7 @@ nav p {
 ul {
   list-style: none;
   padding-left: 0;
-  width: fit-content;
+  max-width: 350px;
   margin: 0 auto;
 }
 li {
@@ -85,46 +129,105 @@ li:nth-child(2) {
 nav a {
   text-decoration: none;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.8rem;
   padding: 1rem;
   border-radius: 1.2rem;
   color: #050505;
 }
-#facil {
+nav #facil {
   background-color: #e7e70b;
 }
-#medio {
+nav #medio {
   background-color: #E9B824;
 }
-#dificil {
+nav #dificil {
   background-color: #EE9322;
 }
-#contactar {
+#facil, 
+#medio,
+#dificil {
+  color: #fffafa;
+  transition: all 0.3s ease-out;
+}
+#facil:hover, 
+#medio:hover,
+#dificil:hover {
+  text-decoration: underline;
+  font-size: 3rem;
+}
+nav #contactar {
+  height: 42px;
   position: absolute;
   right: 8px;
-  background-color: #e7e70b;
   border-radius: 1.2rem;
+}
+a[href="#formulario-contacto"] {
+  display: inline-block;
+  height: 42px;
+  color: #fffafa;
+  padding: .4rem 1rem;
+  font-size: 2.6rem;
+  font-weight: normal;
+  transition: all 0.5s ease-out;
+  background-color: #12486B;
+}
+nav #contactar a[href="#formulario-contacto"]:hover {
+  height: 42px;
+  background-color: #3085C3;
 }
 /* -------- Aside -------- */
 aside {
+  background-color: #dcdcdc;
   box-sizing: border-box;
   height: 100%;
   min-height: 100%;
-  padding: 3rem 1rem 0;
-  /* margin-top: 2rem; */
+  padding: 1rem;
   float: left;
   width: 25%;
-}
-
-form label {
-  display: block;
+  overflow: hidden;
+  background-image: url(./images/aside-bg.jpg);
 }
 #ranking {
   margin: 2rem 0;
 }
+#ranking table {
+  margin: 0 auto;
+  border: 1px solid #333;
+  background-color: #F1EFEF;
+  border-collapse: collapse;
+  text-align: center;
+}
+#ranking th,
+#ranking td {
+  border: 1px solid #b3c5d7;
+  padding: .4rem;
+}
+#ranking th {
+  font-size: 1.8rem;
+  background-color: #94e802;
+  color: #12486b;
+}
+#ranking td {
+  font-size: 1.6rem;
+}
+#ranking table .primer-puesto td{
+  background-color: #e7e70b;
+  font-weight: bold;
+}
+#formulario-contacto {
+  border-top: 2px solid #F1EFEF;
+}
+#ranking > h2,
+#formulario-contacto > h2 {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #2f81bd;
+}
 
 /* -------- Main -------- */
-main {
+#main {
   float: left;
   width: 75%;
   height: auto;
@@ -132,27 +235,48 @@ main {
   border-left: 2px solid #dcdcdc;
   box-sizing: border-box;
 }
-main figure {
-  text-align: center;
+#pantalla {
+  position: relative;
 }
+#vidas-disponibles {
+  position: absolute;
+  right: 50px;
+  top: -22px;
+}
+#vidas-disponibles p {
+  font-size: 3rem;
+}
+#vidas {
+  color: red;
+  font-size: 3.8rem;
+} 
 .contador-de-preguntas {
   margin-left: 20px;
   font-size: 2.2rem;
+  color: #333;
 }
 #carrusel-bandera {
-  overflow: hidden;
   height: auto;
+  padding: 1rem;
+  overflow: hidden;
   overflow-x: auto;
   white-space: nowrap;
-  padding: 1rem;
 }
 article {
   display: inline-block;
   width: 100%;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  background-color: #fffafa;
+  border: 2px solid #dcdcdc;
 }
-figure {
+#main article figure {
+  max-width: 600px;
+  margin: 0 auto !important;
+  text-align: center;
+  background-color: #e8e8e8;
   margin: 0;
-  padding: 3rem;
+  padding: 1rem;
   border-radius: 1rem;
   border: 2px solid #dcdcdc;
 }
@@ -164,7 +288,7 @@ figure {
   text-align: center;
 }
 .opciones{
-  width: fit-content;
+  max-width: 600px;
   margin: 0 auto;
 }
 .ops-izquierdo,
@@ -172,7 +296,6 @@ figure {
   display: inline-block;
   width: 50%;
   padding: 1rem;
-  /* background-color: #e7e70b; */
 }
 button {
   cursor: pointer;
@@ -194,18 +317,16 @@ button:hover {
   margin-bottom: 1rem;
 }
 /* -------- FOOTER -------- */
+
 footer {
   clear: both;
   background-color: #3085C3;
   padding: 2rem 0;
   text-align: center;
-  background-image: url('https://e0.pxfuel.com/wallpapers/187/122/desktop-wallpaper-world-flags.jpg');
-  background-size: auto;
-  background-position: center;
-  background-repeat: repeat-x;
+  background-image: url(./images/footer.bg.jpg);
 }
 footer .informacion {
-  width: fit-content;
+  max-width: 442px;
   margin: 0 auto;
   background-color: #F1EFEF;
   padding: .4rem .8rem;
@@ -218,6 +339,8 @@ footer p {
 footer p:last-child {
   margin: 0;
 }
+
+/* Media querys */
 @media (max-width: 600px) {
   .logo {
     display: block;
@@ -249,10 +372,3 @@ footer p:last-child {
     max-width: 90%;
   }
 }
-/* Color
-celeste: #219C90
-amarillo: #E9B824
-naranja: #EE9322
-rojo: #D83F31
-verde: #D2DE32
-*/
