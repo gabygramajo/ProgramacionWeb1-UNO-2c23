@@ -31,9 +31,9 @@ img {
 .bold {
   font-weight: bold;
 }
-.clear {
+/* .clear {
   clear: both;
-}
+} */
 .btn {
   padding: .4rem;
   font-size: 1.6rem;
