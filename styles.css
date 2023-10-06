@@ -268,9 +268,9 @@ aside {
 #carrusel-bandera {
   height: auto;
   padding: 1rem;
-  overflow: hidden;
+  /* overflow: hidden;
   overflow-x: auto;
-  white-space: nowrap;
+  white-space: nowrap; */
 }
 article {
   display: inline-block;
@@ -304,7 +304,7 @@ article {
 .ops-izquierdo,
 .ops-derecho {
   display: inline-block;
-  width: 50%;
+  width: calc(50% - 1rem);
   padding: 1rem;
 }
 button {
