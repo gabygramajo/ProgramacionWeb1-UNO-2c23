@@ -221,7 +221,7 @@ aside {
 #ranking {
   margin: 2rem 0;
   max-height: 192px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 #ranking table {
   margin: 0 auto;

@@ -6,113 +6,86 @@ const btnIngresarNickname = document.getElementById("ingresarNickname");
 imgBandera = document.getElementById("imgBandera");
 
 
-const banderas = {
-  nivelFacil : {
+const BBDD_banderas = {
+  facil : {
     bandera1: {
-      src: "./images/uruguay.svg",
-      descripcion: "Bandera de celeste y blanca",
       nombre: "uruguay",
       opciones: ["Argentina", "Honduras", "Escocia", "Uruguay"] 
     },
     bandera2: {
-      src: "./images/canada.svg",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "colombia",
+      opciones: ["", "", "", ""]
     },
     bandera3: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "chile",
+      opciones: ["", "", "", ""] 
     },
     bandera4: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "brasil",
+      opciones: ["", "", "", ""] 
     },
     bandera5: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "peru",
+      opciones: ["", "", "", ""] 
     },
   },
-  nivelMedio : {
+  medio : {
     bandera1: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "uruguay",
+      opciones: ["Argentina", "Honduras", "Escocia", "Uruguay"] 
     },
     bandera2: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "colombia",
+      opciones: ["", "", "", ""]
     },
     bandera3: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "chile",
+      opciones: ["", "", "", ""] 
     },
     bandera4: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "brasil",
+      opciones: ["", "", "", ""] 
     },
     bandera5: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "peru",
+      opciones: ["", "", "", ""] 
     },
   },
-  nivelDificil : {
+  dificil : {
     bandera1: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "uruguay",
+      opciones: ["Argentina", "Honduras", "Escocia", "Uruguay"] 
     },
     bandera2: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "colombia",
+      opciones: ["", "", "", ""]
     },
     bandera3: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "chile",
+      opciones: ["", "", "", ""] 
     },
     bandera4: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "brasil",
+      opciones: ["", "", "", ""] 
     },
     bandera5: {
-      src: "./images/",
-      descripcion: "",
-      nombre: "",
-      opciones: [] 
+      nombre: "peru",
+      opciones: ["", "", "", ""] 
     },
   }
 }
 
-const jugadores = [];
+const vidas = ["❤", "❤", "❤"];
+const BBDD_jugadores = [];
+const BanderasDelNivel = [];
+
 
 const crearJugador = (nickname) => {
   const jugador = {
     nombre : nickname,
     puntaje: 0 
   }
-  jugadores.push(jugador);
+  BBDD_jugadores.push(jugador);
 }
 
 function actualizarBandera() {
@@ -122,9 +95,9 @@ function actualizarBandera() {
 
 function validarJugadorExistente(nuevoNickname) {
 
-  const nicknameExiste = jugadores.some((e) => e.nombre == nuevoNickname);
+  //const nicknameExiste = BBDD_jugadores.some((e) => e.nombre == nuevoNickname);
 
-  return nicknameExiste;
+  return BBDD_jugadores.some((e) => e.nombre == nuevoNickname);
 }
 
 function desactivarCampoObligatorio() {
@@ -157,24 +130,43 @@ function ingresarNuevoJugador(e) {
   validarJugador(nickName.value.trim());
 }
 
-function activarNivelDeJuego(e) {
-
+function activarPantalla() {
   const pantalla = document.getElementById("pantalla")
   const ventanaModal = document.getElementById("ventana-modal")
 
   if(pantalla.classList.contains("desactivar")) {
     pantalla.classList.remove("desactivar");  
     ventanaModal.classList.add("desactivar");
-  } else {
+  } 
+  else {
     pantalla.classList.add("desactivar");
     ventanaModal.classList.remove("desactivar");
   }
 }
 
+function activarNivelDeJuego(e) {
+
+  const pantalla = document.getElementById("pantalla");
+  const ventanaModal = document.getElementById("ventana-modal");
+
+  // if (BBDD_jugadores.length >= 1)
+  //   confirm("")
+
+  if(pantalla.classList.contains("desactivar")) {
+    pantalla.classList.remove("desactivar");  
+    ventanaModal.classList.add("desactivar");
+  } else {
+    confirm("Esta acción reiniciará el juego.")
+    // pantalla.classList.add("desactivar");
+    // ventanaModal.classList.remove("desactivar");
+  }
+}
+
 function comenzarJuego(e) {
-  if(nickName.classList.contains("obligatorio"))
+  // if(nickName.classList.contains("obligatorio"))
+  if(BBDD_jugadores.length == 0)
     alert("Debes Ingersar tu nickname y luego alegir el nivel")
-  else
+  else 
     activarNivelDeJuego(e);
 }
 
@@ -184,3 +176,102 @@ btnNivelFacil.addEventListener("click", comenzarJuego);
 btnNivelMedio.addEventListener("click", comenzarJuego);
 btnNivelDificil.addEventListener("click", comenzarJuego);
 btnIngresarNickname.addEventListener("click", ingresarNuevoJugador);
+
+// const BBDD_banderas = {
+//   facil : {
+//     bandera1: {
+//       nombre: "uruguay",
+//       src: "./images/uruguay.svg",
+//       descripcion: "Bandera de celeste y blanca",
+//       opciones: ["Argentina", "Honduras", "Escocia", "Uruguay"] 
+//     },
+//     bandera2: {
+//       src: "./images/canada.svg",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera3: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera4: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera5: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//   },
+//   medio : {
+//     bandera1: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera2: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera3: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera4: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera5: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//   },
+//   dificil : {
+//     bandera1: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera2: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera3: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera4: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//     bandera5: {
+//       src: "./images/",
+//       descripcion: "",
+//       nombre: "",
+//       opciones: [] 
+//     },
+//   }
+// }
