@@ -1,8 +1,10 @@
 /* -------- Estilos generales -------- */
 html {
   font-size: 62.5%;
+  height: 100%;
 }
 body {
+  height: 100%;
   width: 100%;
   max-width: 1400px;
   margin: 0 auto;
@@ -258,7 +260,17 @@ aside {
   text-decoration: underline;
   color: #2f81bd;
 }
-
+/* Modal */
+#ventana-modal {
+  background-color: #dcdcdc !important;
+  height: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #000 !important;
+}
+.instrucción {
+  font-size: 3rem;
+}
 /* -------- Main -------- */
 #main-container {
   background-color: #fffafa;
