@@ -3,7 +3,7 @@ const midLvl = document.getElementById("medio");
 const hardLvl = document.getElementById("dificil");
 const nickName = document.getElementById("nickname");
 const nicknameInitial = document.getElementById("nicknameInitial");
-const entryPoint = document.getElementById("iniciarNickname");
+const entryPoint = document.getElementById("comenzarJuego");
 const resetNickname = document.getElementById("ingresarNickname");
 const globalContainer = document.getElementById("global-container");
 const modal = document.getElementById("ventana-modal");
@@ -20,7 +20,7 @@ const BBDD_countries = {
     country2: {
       name: "colombia",
       op_correct: "colombia",
-      options: ["hoduras", "colombia", "ucrania", "nigeria"],
+      options: ["honduras", "colombia", "ucrania", "nigeria"],
       tracks: "☕ 💃🏼 🥑"
     },
     country3: {
@@ -126,21 +126,31 @@ function validateExistingPlayer(newNickname) {
 
 function desactivateRequiredField() {
   nicknameInitial.classList.remove("obligatorio");
+  nicknameInitial.classList.add("validado");
+}
+function activateRequiredField() {
+  nicknameInitial.classList.remove("validado");
+  nicknameInitial.classList.add("obligatorio");
+}
+
+function validateInputNickname(e) {
+
+  if(nicknameInitial.value.length >= 4 && nicknameInitial.value.length <= 8) {
+    if(nicknameInitial.classList.contains("obligatorio")) 
+      desactivateRequiredField();
+  } else {
+    if(nicknameInitial.classList.contains("validado")) 
+      activateRequiredField();
+  }
 }
 
 function validatePlayer(playerNickName) {
 
   const longitudValida = playerNickName.length >= 4 && playerNickName.length <= 8;
 
-  if(longitudValida && !validateExistingPlayer(playerNickName) ) {
+  if(longitudValida && !validateExistingPlayer(playerNickName) ) 
     createPlayer(playerNickName);
 
-    if(nicknameInitial.classList.contains("obligatorio")) 
-      desactivateRequiredField();
-
-  } else 
-      alert("Nickname no válido o ya existente")
-  
 }
 
 function desactivarPeventDefault(event) {
@@ -160,12 +170,12 @@ function resetGame(e) {
     reloadGame();
 }
 
-function intialPlayer(e) {
-  desactivarPeventDefault(e);
+// function intialPlayer(e) {
+//   desactivarPeventDefault(e);
 
-  validatePlayer(nicknameInitial.value.trim());
-  nickName.value = "";
-}
+//   validatePlayer(nicknameInitial.value.trim());
+//   nickName.value = "";
+// }
 
 function activateDisplay() {
 
@@ -174,8 +184,14 @@ function activateDisplay() {
 
 }
 
-function activateGameLevel(e) {
+function playerInfo() {
+  let player = BBDD_players[0];
+  $("#player-info").html(`<p id="player-info__nickname">Jugador: ${player.name}</p>
+  <p id="player-info__score">Puntaje: ${player.score}</p>`)
+}
 
+function activateGameLevel(e) {
+  playerInfo();
   console.log("lvl: ",e.id);
 
   $('.op-a').click(selectedOption);
@@ -196,8 +212,11 @@ function activateGameLevel(e) {
 
 function startGame(e) {
 
-  if(BBDD_players.length == 0)
-    alert("Debes Ingersar tu nickname y luego alegir el nivel")
+  validatePlayer(nicknameInitial.value.trim());
+
+  if(BBDD_players.length == 0) {
+    $("#nicknameIncorrect").text("tú nickname no es válido, por favor ingresa otro.");
+  }
   else 
     activateGameLevel(e.target);
 }
@@ -360,5 +379,6 @@ function selectedOption(op) {
 easyLvl.addEventListener("click", startGame);
 midLvl.addEventListener("click", startGame);
 hardLvl.addEventListener("click", startGame);
-entryPoint.addEventListener("click", intialPlayer);
+// entryPoint.addEventListener("click", intialPlayer);
 resetNickname.addEventListener("click", resetGame);
+nicknameInitial.addEventListener('input', validateInputNickname);

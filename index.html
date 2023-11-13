@@ -12,35 +12,35 @@
 </head>
 <body>
   <div id="ventana-modal">
-    
-    <p class="instrucción">Paso 1</p>
 
     <div id="nombre-usuario">
       <form class="formNickname" action="#" method="post">
-        <label for="nicknameInitial">
-          Nickname:
+        <label for="nicknameInitial" class="font-arial">
+          Ingresa tú nickname:
         </label>
-        <input type="text" id="nicknameInitial" class="obligatorio" minlength="4" maxlength="8" placeholder="Entre 4 y 8 carácteres" required>
-        <input id="iniciarNickname" class="btn" type="submit" value="Ingresar Nickname">
+        <p id="nicknameIncorrect"></p>
+        <input type="text" id="nicknameInitial" class="obligatorio font-arial" minlength="4" maxlength="8" placeholder="Entre 4 y 8 carácteres" required>
+
+        <button type="submit" disabled hidden aria-hidden="true"></button>
+
+        <!-- <input id="iniciarNickname" class="btn-game" type="submit" value="Ingresar Nickname"> -->
       </form>
     </div>
 
-    <p class="instrucción">Paso 2</p>
     <nav class="container-fluid">
-      <p>Elegir dificultad</p>
+      <p class="font-arial">Elegir dificultad</p>
       <ul>
         <li>
-          <button id="facil" href="#">Fácil</button>
+          <button class="font-arial" id="facil" href="#">Fácil</button>
         </li>
         <li>
-          <button id="medio" href="#">Medio</button>
+          <button class="font-arial" id="medio" href="#">Medio</button>
         </li>
         <li>
-          <button id="dificil" href="#">Díficil</button>
+          <button class="font-arial" id="dificil" href="#">Díficil</button>
         </li>
       </ul>
     </nav>
-
   </div>
 
   <div id="global-container" class="desactivar">
@@ -54,13 +54,10 @@
     
     <aside id="seccion-ranking" class="col-xs-12 col-md-4 order-md-1 order-2">
       <div id="iniciar-usuario">
-        <form class="formNickname" action="#" method="post">
-          <label for="nickname">
-            Nickname:
-          </label>
-          <input type="text" id="nickname" minlength="4" maxlength="8" placeholder="Entre 4 y 8 carácteres" required disabled>
-          <input id="ingresarNickname" class="btn" type="submit" value=" reinciar Nickname">
-        </form>
+        <div id="player-info">
+        </div>
+
+        <button id="ingresarNickname" class="btn-game">Cambiar nickname</button>
       </div>
 
       <div id="ranking">
@@ -108,9 +105,9 @@
             <option value="contactar">contactar</option>
             <option value="otro">otro</option>
           </select>
-          <label for="description">Description</label>
+          <label for="description">Descripción: </label>
           <textarea name="description" id="description" cols="30" rows="2" required></textarea>
-          <input class="btn" type="submit" value="Enviar">
+          <input class="btn-game" type="submit" value="Enviar">
         </form>
       </div>
     </aside>
@@ -133,12 +130,12 @@
             <h2 class="pregunta">¿A qué país corresponde la bandera? 🤔</h2>
             <div class="opciones">
               <div class="ops-izquierdo">
-                <button class="op-a">none</button>
-                <button class="op-b">none</button>
+                <button class="option op-a">none</button>
+                <button class="option op-b">none</button>
               </div>
               <div class="ops-derecho">
-                <button class="op-c">none</button>
-                <button class="op-d">none</button>
+                <button class="option op-c">none</button>
+                <button class="option op-d">none</button>
               </div>
             </div>
           </article>

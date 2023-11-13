@@ -10,7 +10,7 @@ body {
   margin: 0 auto;
   background-color: #000;
   font-size: 2rem;
-  font-family: cursive, Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 * {
   box-sizing: border-box;
@@ -39,7 +39,7 @@ img {
   font-weight: bold;
 }
 
-.btn {
+.btn-game {
   padding: .4rem;
   font-size: 1.6rem;
   font-weight: bold;
@@ -92,6 +92,10 @@ textarea:focus {
 }
 .obligatorio {
   box-shadow: 0 0 15px 3px red;
+}
+.validado {
+  box-shadow: 0 0 15px 3px #36bf00;
+  border: 3px solid #f9c900;
 }
 header,
 footer {
@@ -215,9 +219,21 @@ aside {
   overflow: hidden;
   background-image: url(./images/aside-bg.jpg);
 }
-#nombre-usuario input.btn:hover,
-#formulario-contacto input.btn:hover {
-  background-color: #2d7511;
+#iniciar-usuario {
+  background-color: #fff;
+  padding: 0.8rem;
+  border-radius: 1rem;
+} 
+#player-info {
+  max-width: 20rem;
+  margin: 0 auto;
+  font-family: Arial;
+  font-size: 2.4rem;
+}
+button#ingresarNickname:hover,
+#nombre-usuario input.btn-game:hover,
+#formulario-contacto input.btn-game:hover {
+  background-color: #36bf00 !important;
   color: white;
 }
 #ranking {
@@ -260,16 +276,40 @@ aside {
   text-decoration: underline;
   color: #2f81bd;
 }
-/* Modal */
+/* -------- ventana-modal -------- */
 #ventana-modal {
+  padding-top: 10%;
   background-color: #dcdcdc !important;
   height: 100%;
+  width: 100%;
   max-width: 500px;
+  text-align: center;
   margin: 0 auto;
   color: #000 !important;
 }
-.instrucción {
-  font-size: 3rem;
+#nombre-usuario label {
+  margin-bottom: 1.6rem;
+  font-size: 2.4rem;
+}
+#nombre-usuario input:focus {
+  /* outline: 3px solid #f9c900; */
+  outline: none;
+  border: 2px solid #b3c5d7;
+}
+.font-arial {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+#nicknameIncorrect {
+  color: #ff0000;
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0 0 2rem;
+}
+#comenzarJuego.btn-game {
+  margin: 0 auto;
+}
+#comenzarJuego.btn-game:hover {
+  background-color: #36bf00;
 }
 /* -------- Main -------- */
 #main-container {
@@ -357,27 +397,20 @@ button {
   padding: .8rem;
   border-radius: 1rem;
   text-align: center;
+  text-transform: capitalize;
   font-size: 2.8rem;
   line-height: 2.8rem;
   background-color: #3085C3;
   color: #F1EFEF;
 }
-button:hover {
+button.option:hover {
   background-color: #12486B;
 }
 .op-a,
 .op-c {
   margin-bottom: 1rem;
 }
-/* -------- ventana-modal -------- */
-#ventana-modal {
-  background-color: #333;
-  color: white;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding-top: 10%;
-}
+
 /* -------- FOOTER -------- */
 
 footer {
