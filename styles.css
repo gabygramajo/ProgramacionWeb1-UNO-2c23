@@ -28,13 +28,6 @@ img {
 .desactivar {
   display: none;
 }
-.correcto:focus {
-  background-color: #42c40e;
-}
-/* .falso:active, */
-.falso:focus {
-  background-color: red;
-}
 .bold {
   font-weight: bold;
 }
@@ -108,6 +101,14 @@ aside {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ol li {
+  margin: 0 !important;
 }
 /* -------- Header -------- */
 header {
@@ -230,6 +231,9 @@ aside {
   font-family: Arial;
   font-size: 2.4rem;
 }
+#ingresarNickname {
+  margin: 0 auto;
+}
 button#ingresarNickname:hover,
 #nombre-usuario input.btn-game:hover,
 #formulario-contacto input.btn-game:hover {
@@ -311,12 +315,20 @@ button#ingresarNickname:hover,
 #comenzarJuego.btn-game:hover {
   background-color: #36bf00;
 }
+/* instrucciones */
+#game-instructions {
+  background-color: #fff;
+}
+#game-instructions ol {
+  max-width: 600px;
+  margin: 0 auto;
+}
 /* -------- Main -------- */
 #main-container {
   background-color: #fffafa;
 }
 main {
-  padding-top: 5rem;
+  padding-top: 2rem;
   background-color: #fffafa;
 }
 #pantalla {
@@ -356,6 +368,12 @@ article {
   background-color: #fffafa;
   border: 2px solid #dcdcdc;
 }
+#contenedorBandera {
+  text-align: center;
+}
+#reloadGame {
+  margin: 0 auto;
+}
 #main article figure {
   max-width: 600px;
   margin: 0 auto !important;
@@ -368,13 +386,22 @@ article {
 }
 #interfaz-bandera img {
   display: block;
-  height: 280px;
+  /* height: 280px; */
   max-width: 400px;
   margin: 0 auto;
   border-radius: 1rem;
 }
-figcaption {
+figcaption#state {
   text-align: center;
+  height: 3rem;
+}
+figcaption.op-correcta {
+  color: #2d9b02;
+  font-weight: bold;
+}
+figcaption.op-incorrecta {
+  color: #c80b0b;
+  font-weight: bold;
 }
 .pregunta {
   text-align: center;
@@ -403,8 +430,14 @@ button {
   background-color: #3085C3;
   color: #F1EFEF;
 }
-button.option:hover {
-  background-color: #12486B;
+
+button.correcto:focus {
+  background-color: #42c40e;
+
+}
+button.falso:focus {
+  background-color: #ff0000;
+
 }
 .op-a,
 .op-c {
@@ -483,6 +516,7 @@ footer p:last-child {
   #interfaz-bandera img {
     max-width: 90%;
     height: 230px;
+    box-shadow: 4px 6px 14px 0px rgba(0,0,0,0.3);
   }
   figcaption p {
     margin: 0;

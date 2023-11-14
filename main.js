@@ -4,7 +4,7 @@ const hardLvl = document.getElementById("dificil");
 const nickName = document.getElementById("nickname");
 const nicknameInitial = document.getElementById("nicknameInitial");
 const entryPoint = document.getElementById("comenzarJuego");
-const resetNickname = document.getElementById("ingresarNickname");
+const resetNickname = document.getElementById("resetNickname");
 const globalContainer = document.getElementById("global-container");
 const modal = document.getElementById("ventana-modal");
 
@@ -144,15 +144,6 @@ function validateInputNickname(e) {
   }
 }
 
-function validatePlayer(playerNickName) {
-
-  const longitudValida = playerNickName.length >= 4 && playerNickName.length <= 8;
-
-  if(longitudValida && !validateExistingPlayer(playerNickName) ) 
-    createPlayer(playerNickName);
-
-}
-
 function desactivarPeventDefault(event) {
   event.preventDefault();
 }
@@ -190,6 +181,26 @@ function playerInfo() {
   <p id="player-info__score">Puntaje: ${player.score}</p>`)
 }
 
+function startGame(e) {
+
+  validatePlayer(nicknameInitial.value.trim());
+
+  if(BBDD_players.length == 0) {
+    $("#nicknameIncorrect").text("tú nickname no es válido, por favor ingresa otro.");
+  }
+  else 
+    activateGameLevel(e.target);
+}
+
+function validatePlayer(playerNickName) {
+
+  const longitudValida = playerNickName.length >= 4 && playerNickName.length <= 8;
+
+  if(longitudValida && !validateExistingPlayer(playerNickName) ) 
+    createPlayer(playerNickName);
+
+}
+
 function activateGameLevel(e) {
   playerInfo();
   console.log("lvl: ",e.id);
@@ -210,16 +221,6 @@ function activateGameLevel(e) {
   requestApi(country);
 }
 
-function startGame(e) {
-
-  validatePlayer(nicknameInitial.value.trim());
-
-  if(BBDD_players.length == 0) {
-    $("#nicknameIncorrect").text("tú nickname no es válido, por favor ingresa otro.");
-  }
-  else 
-    activateGameLevel(e.target);
-}
 // jquery & ajax
 
 function requestApi(country){
@@ -248,6 +249,7 @@ function getCountryInfo(datos){
 
 function updateOptions (options) {
   const optionsBtn = document.querySelectorAll(".opciones button");
+  $( "#state" ).text( "" );
 
   optionsBtn.forEach((btn, i) => { 
     if( btn.classList.contains("falso"))
@@ -258,12 +260,28 @@ function updateOptions (options) {
 
 }
 
+function selectedOption(op) {
+
+  let isCorrect = nextCountry(op.target);
+
+  updateStateOption(isCorrect)
+
+  playerInfo();
+
+  if(cont == 5 && isCorrect) {
+    setTimeout(
+      levelCompleted
+    , 1000);
+  }
+}
+
 function nextCountry (op) {
 
   const questionCounter = document.querySelector(".contador-de-preguntas");
 
+  console.log(op.innerText.toLowerCase());
 
-  if( op.innerText == countriesOfLvl[cont - 1].op_correct) {
+  if( op.innerText.toLowerCase() == countriesOfLvl[cont - 1].op_correct) {
 
     op.classList.add("correcto");
     BBDD_players[0].score += 20;
@@ -281,12 +299,14 @@ function nextCountry (op) {
       }, "1000");
     } 
 
+    
     return true;
 
   } else {
 
     ++count_error;
-    BBDD_players[0].score -= 5;
+
+    BBDD_players[0].score -= (BBDD_players[0].score > 5) ? 5 : 0;
     op.classList.add("falso");
 
     if(count_error == 3) {
@@ -305,9 +325,43 @@ function nextCountry (op) {
       
       count_error = 0;
     }
+
     return false;
   }
 }
+
+function updateStateOption(value) {
+  $("#state").removeAttr("class")
+
+  if(value) 
+    updateStateOptionCorrect();
+  else
+    updateStateOptionIncorrect();
+}
+
+function updateStateOptionCorrect() {
+
+  $("#state").addClass(function( index, currentClass ) {
+    let addedClass;
+
+    addedClass = "op-correcta";
+    $( "#state" ).text( "¡Opción Correcta!" );
+
+    return addedClass;
+  });
+}
+
+function updateStateOptionIncorrect() {
+  $("#state").addClass(function( index, currentClass ) {
+    let addedClass;
+
+    addedClass = "op-incorrecta";
+    $( "#state" ).text( "¡Opción Incorrecta!" ); 
+
+    return addedClass;
+  });
+}
+
 
 function levelCompleted() {
   $("#contenedorBandera")
@@ -359,26 +413,12 @@ function nextLevel(e) {
   startGame(e);
 }
 
-function selectedOption(op) {
-  let isCorrect = nextCountry(op.target);
-  
-  if(cont == 5 && isCorrect) {
-    setTimeout(
-      levelCompleted
-    , 1000);
-  }
-}
-
-
-// jquery events
-
-
 
 // eventos
 
 easyLvl.addEventListener("click", startGame);
 midLvl.addEventListener("click", startGame);
 hardLvl.addEventListener("click", startGame);
-// entryPoint.addEventListener("click", intialPlayer);
 resetNickname.addEventListener("click", resetGame);
 nicknameInitial.addEventListener('input', validateInputNickname);
+// entryPoint.addEventListener("click", intialPlayer);

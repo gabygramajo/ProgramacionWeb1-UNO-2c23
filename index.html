@@ -47,17 +47,17 @@
 
     
   <header class="container-fluid">
-    <h1>¿Qué País soy?</h1>
+    <h1>Adivina la bandera</h1>
   </header>
 
   <div id="main-container" class="container-fluid row m-0 p-0">
     
-    <aside id="seccion-ranking" class="col-xs-12 col-md-4 order-md-1 order-2">
+    <aside id="seccion-ranking" class="col-xs-12 col-md-3 order-md-1 order-3">
       <div id="iniciar-usuario">
         <div id="player-info">
         </div>
 
-        <button id="ingresarNickname" class="btn-game">Cambiar nickname</button>
+        <button id="resetNickname" class="btn-game">Cambiar nickname</button>
       </div>
 
       <div id="ranking">
@@ -112,7 +112,7 @@
       </div>
     </aside>
 
-    <main class="col-xs-12 col-md-8 order-md-2 order-1 container-fluid">
+    <main class="col-xs-12 col-md-6 order-md-2 order-2 container-fluid">
 
       <section id="pantalla">
 
@@ -125,7 +125,8 @@
 
           <article id="contenedorBandera">
             <figure>
-              <img id="imgBandera" class="img-fluid" src="./images/japan.svg" alt="Bandera de celeste y blanca">
+              <img id="imgBandera" class="img-fluid" src="./images/fake-flag.webp" alt="Bandera fake">
+              <figcaption id="state" class=""></figcaption>
             </figure>
             <h2 class="pregunta">¿A qué país corresponde la bandera? 🤔</h2>
             <div class="opciones">
@@ -144,7 +145,18 @@
       </section>
 
     </main>
-    
+
+    <section id="game-instructions" class="col-xs-12 col-md-3 order-md-3 order-1 container-fluid text-center m-0 pt-4 ps-1 pe-1">
+      <h2>Reglas del juego</h2>
+      <ol class="text-start">
+        <li>1. Al selecionar la opción correcta, sumarás 15pts.</li>
+        <li>2. Al selecionar la opción incorrecta, se te restarán 5pts, siendo 0 el puntaje mínimo.</li>
+        <li>3. Tienes un total de 3 vidas.</li>
+        <li>4. Al selecionar 3 opciones incorrecta perderás una vida.</li>
+        <li>5. Al completar los 3 niveles, verás tu puntaje final.</li>
+      </ol>
+    </section>
+
   </div>
 
   <footer>
