@@ -284,7 +284,7 @@ function nextCountry (op) {
   if( op.innerText.toLowerCase() == countriesOfLvl[cont - 1].op_correct) {
 
     op.classList.add("correcto");
-    BBDD_players[0].score += 20;
+    BBDD_players[0].score += 15;
 
     if(cont < countriesOfLvl.length) {
         setTimeout(() => {
@@ -396,6 +396,7 @@ function nextLevel(e) {
     .html(`
     <figure>
       <img id="imgBandera" class="img-fluid" src="./images/japan.svg" alt="Bandera de celeste y blanca">
+      <figcaption id="state" class=""></figcaption>
     </figure>
     <h2 class="pregunta">¿A qué país corresponde la bandera? 🤔</h2>
     <div class="opciones">
