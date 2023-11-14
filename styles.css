@@ -240,39 +240,40 @@ button#ingresarNickname:hover,
   background-color: #36bf00 !important;
   color: white;
 }
-#ranking {
+.ranking {
   margin: 2rem 0;
   max-height: 192px;
   /* overflow-y: scroll; */
 }
-#ranking table {
+.ranking table {
   margin: 0 auto;
   border: 1px solid #333;
   background-color: #F1EFEF;
   border-collapse: collapse;
   text-align: center;
 }
-#ranking th,
-#ranking td {
+.ranking th,
+.ranking td {
   border: 1px solid #b3c5d7;
   padding: .4rem;
+  text-transform: capitalize;
 }
-#ranking th {
+.ranking th {
   font-size: 1.8rem;
   background-color: #94e802;
   color: #12486b;
 }
-#ranking td {
+.ranking td {
   font-size: 1.6rem;
 }
-#ranking table .primer-puesto td{
+.ranking table .primer-puesto td{
   background-color: #e7e70b;
   font-weight: bold;
 }
 #formulario-contacto {
   border-top: 2px solid #F1EFEF;
 }
-#ranking > h2,
+.ranking > h2,
 #formulario-contacto > h2 {
   font-size: 2rem;
   text-align: center;
@@ -371,7 +372,7 @@ article {
 }
 #contenedorBandera {
   text-align: center;
-  min-height: 400px;
+  min-height: 500px;
   height: 100%;
 }
 #reloadGame {

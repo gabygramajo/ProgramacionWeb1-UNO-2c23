@@ -105,8 +105,20 @@ const BBDD_countries = {
 
 // Variables Globales
 
+let BBDD_players = [
+  {
+    name : "Darking",
+    score: 180 
+  }, {
+    name : "Valkiria",
+    score: 105 
+  }, {
+    name : "Trokito",
+    score: 75 
+  }
+];
+let currentPlayer = {};
 let lives = ["❤", "❤", "❤"];
-let BBDD_players = [];
 let countriesOfLvl = [];
 let count_error = 0;
 let cont = 1;
@@ -119,6 +131,7 @@ const createPlayer = (nickname) => {
     name : nickname,
     score: 0 
   }
+  currentPlayer = player;
   BBDD_players.push(player);
 }
 
@@ -179,29 +192,32 @@ function activateDisplay() {
 }
 
 function playerInfo() {
-  let player = BBDD_players[0];
-  $("#player-info").html(`<p id="player-info__nickname">Jugador: ${player.name}</p>
-  <p id="player-info__score">Puntaje: ${player.score}</p>`)
+  $("#player-info").html(`<p id="player-info__nickname">Jugador: ${currentPlayer.name}</p>
+  <p id="player-info__score">Puntaje: ${currentPlayer.score}</p>`)
 }
 
 function startGame(e) {
 
-  validatePlayer(nicknameInitial.value.trim());
+  // validatePlayer(nicknameInitial.value.trim());
 
-  if(BBDD_players.length == 0) {
-    $("#nicknameIncorrect").text("tú nickname no es válido, por favor ingresa otro.");
+  // if(BBDD_players.length == 0 || validateExistingPlayer(playerNickName)) {
+  if(validatePlayer(nicknameInitial.value.trim())) {
+    $("#nicknameIncorrect").text("tú nickname no es válido o ya existe, por favor ingresa otro.");
   }
-  else 
+  else {
+    createPlayer(nicknameInitial.value.trim());
     activateGameLevel(e.target);
+  }
 }
 
 function validatePlayer(playerNickName) {
 
   const longitudValida = playerNickName.length >= 4 && playerNickName.length <= 8;
 
-  if(longitudValida && !validateExistingPlayer(playerNickName) ) 
-    createPlayer(playerNickName);
+  // if(longitudValida && !validateExistingPlayer(playerNickName) ) 
+  //   createPlayer(playerNickName);
 
+  return !longitudValida || validateExistingPlayer(playerNickName);
 }
 
 function activateGameLevel(e) {
@@ -288,7 +304,7 @@ function nextCountry (op) {
   if( op.innerText.toLowerCase() == countriesOfLvl[cont - 1].op_correct) {
 
     op.classList.add("correcto");
-    BBDD_players[0].score += 15;
+    currentPlayer.score += 15;
 
     if(cont < countriesOfLvl.length) {
         setTimeout(() => {
@@ -310,7 +326,7 @@ function nextCountry (op) {
 
     ++count_error;
 
-    BBDD_players[0].score -= (BBDD_players[0].score > 5) ? 5 : 0;
+    currentPlayer.score -= (currentPlayer.score > 5) ? 5 : 0;
     op.classList.add("falso");
 
     if(count_error == 3) {
@@ -321,7 +337,8 @@ function nextCountry (op) {
       if(lives.length == 0){
 
         $("#contenedorBandera")
-        .html(`<p> se te acabaron las vidas! vuelve a intentarlo, tu puntaje fué de ${BBDD_players[0].score} pts </p> 
+        .html(`<p> se te acabaron las vidas! vuelve a intentarlo, tu puntaje fué de ${currentPlayer.score} pts </p> 
+        <div class="ranking">${updateRanking()}</div>
         <button id="reloadGame">Reinciar juego</button>`);
 
         $('#reloadGame').click(reloadGame);
@@ -371,7 +388,7 @@ function levelCompleted() {
   $("#contenedorBandera")
     .html(`
     <nav class="container-fluid">
-      <p> Felicidades! hás completado el nivel ${currentLvl}, lograste ${BBDD_players[0].score} pts.</p>
+      <p> Felicidades! hás completado el nivel ${currentLvl}, lograste ${currentPlayer.score} pts.</p>
       <ul>
         ${nextLevel(currentLvl)}
       </ul>
@@ -414,8 +431,10 @@ function nextLevel(currentLvl) {
         <p>🎉🥳¡¡¡Felicidades!!!🥳🎉</p> 
         <p>Has completado el juego.</p>
       </li>
-      <button id="reset-game" class="btn-game">Reiniciar juego</button>`;
-      $("#reset-game").click(reloadGame)
+      <div class="ranking">${updateRanking()}</div>
+      <button id="reset-game" onclick="reloadGame()" class="btn-game">Reiniciar juego</button>`;
+
+      console.log("HOla");
       break;
 
     default:
@@ -446,7 +465,47 @@ function startNextLevel(e) {
     </div>
     `);
 
-  startGame(e);
+    activateGameLevel(e.target);
+}
+
+function updateRanking() {
+  let ranking = `<p>No lograste entrar en el ranking top 3, vuelve a intentarlo y supérate.</p>`;
+
+  if(currentPlayer.score >= BBDD_players[2].score) {
+    BBDD_players.sort((a, b) => b.score - a.score)
+
+    ranking = `
+    <h2>Ranking</h2>
+    <table>
+      <tr>
+        <th>Posición</th>
+        <th>Nickname</th>
+        <th>Puntos</th>
+      </tr>
+
+      <tr class="primer-puesto">
+        <td>1🥇</td>
+        <td>${BBDD_players[0].name}</td>
+        <td>${BBDD_players[0].score}</td>
+      </tr>
+
+      <tr class="segundo-puesto">
+        <td>2🥈</td>
+        <td>${BBDD_players[1].name}</td>
+        <td>${BBDD_players[1].score}</td>
+      </tr>
+
+      <tr class="tercer-puesto">
+        <td>3🥉</td>
+        <td>${BBDD_players[2].name}</td>
+        <td>${BBDD_players[2].score}</td>
+      </tr>
+
+    </table>
+    `;
+  }
+
+  return ranking;
 }
 
 
