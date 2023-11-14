@@ -103,11 +103,14 @@ const BBDD_countries = {
   }
 }
 
+// Variables Globales
+
 let lives = ["❤", "❤", "❤"];
-const BBDD_players = [];
+let BBDD_players = [];
 let countriesOfLvl = [];
 let count_error = 0;
 let cont = 1;
+let currentLvl = "";
 
 // ------ FUNTIONS -----
 
@@ -204,6 +207,7 @@ function validatePlayer(playerNickName) {
 function activateGameLevel(e) {
   playerInfo();
   console.log("lvl: ",e.id);
+  currentLvl = e.id.replace("lvl", "");
 
   $('.op-a').click(selectedOption);
   $('.op-b').click(selectedOption);
@@ -279,7 +283,7 @@ function nextCountry (op) {
 
   const questionCounter = document.querySelector(".contador-de-preguntas");
 
-  console.log(op.innerText.toLowerCase());
+  // console.log(op.innerText.toLowerCase());
 
   if( op.innerText.toLowerCase() == countriesOfLvl[cont - 1].op_correct) {
 
@@ -367,35 +371,66 @@ function levelCompleted() {
   $("#contenedorBandera")
     .html(`
     <nav class="container-fluid">
-      <p> Felicidades! hás completado el nivel, lograste ${BBDD_players[0].score} pts. Elige el siguiente Nivel </p>
+      <p> Felicidades! hás completado el nivel ${currentLvl}, lograste ${BBDD_players[0].score} pts.</p>
       <ul>
-        <li>
-          <button id="lvlfacil" href="#">Fácil</button>
-        </li>
-        <li>
-          <button id="lvlmedio" href="#">Medio</button>
-        </li>
-        <li>
-          <button id="lvldificil" href="#">Díficil</button>
-        </li>
+        ${nextLevel(currentLvl)}
       </ul>
     </nav>`);
 
     
-    $('#lvlfacil').click(nextLevel);
-    $('#lvlmedio').click(nextLevel);
-    $('#lvldificil').click(nextLevel);
+    $('#lvlfacil').click(startNextLevel);
+    $('#lvlmedio').click(startNextLevel);
+    $('#lvldificil').click(startNextLevel);
 
     count_error = 0;
     cont = 1;
     countriesOfLvl = [];
 }
 
-function nextLevel(e) {
+function nextLevel(currentLvl) {
+
+  let createNextLvl = "";
+
+  switch (currentLvl) {
+    case "facil":
+      createNextLvl = `
+        <p>Elige el siguiente Nivel: </p>
+        <li>
+          <button id="lvlmedio" href="#">Medio</button>
+        </li>`;
+      break;
+
+    case "medio":
+      createNextLvl = `
+        <p>Elige el siguiente Nivel: </p>
+        <li>
+          <button id="lvldificil" href="#">Díficil</button>
+        </li>`;
+      break;
+
+    case "dificil":
+      createNextLvl = 
+      `<li>
+        <p>🎉🥳¡¡¡Felicidades!!!🥳🎉</p> 
+        <p>Has completado el juego.</p>
+      </li>
+      <button id="reset-game" class="btn-game">Reiniciar juego</button>`;
+      $("#reset-game").click(reloadGame)
+      break;
+
+    default:
+      break;
+  }
+
+  return createNextLvl;
+}
+
+function startNextLevel(e) {
+
   $("#contenedorBandera")
     .html(`
     <figure>
-      <img id="imgBandera" class="img-fluid" src="./images/japan.svg" alt="Bandera de celeste y blanca">
+      <img id="imgBandera" class="img-fluid" src="./images/fake-flag.webp" alt="Bandera de celeste y blanca">
       <figcaption id="state" class=""></figcaption>
     </figure>
     <h2 class="pregunta">¿A qué país corresponde la bandera? 🤔</h2>
@@ -418,8 +453,8 @@ function nextLevel(e) {
 // eventos
 
 easyLvl.addEventListener("click", startGame);
-midLvl.addEventListener("click", startGame);
-hardLvl.addEventListener("click", startGame);
+// midLvl.addEventListener("click", startGame);
+// hardLvl.addEventListener("click", startGame);
 resetNickname.addEventListener("click", resetGame);
 nicknameInitial.addEventListener('input', validateInputNickname);
 // entryPoint.addEventListener("click", intialPlayer);

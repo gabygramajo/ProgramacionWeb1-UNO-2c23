@@ -6,7 +6,9 @@
   <meta name="description" content="Proyecto para la materia Programación Web 1, trata de un juego sobre de banderas en el que tienes que acertar que a qué país pertenece una bandera"/>
   <meta name="keywords" content="HTML, CSS, Javascript, juego de banderas, trivia de banderas" />
   <meta name="author" content="Gabriel Gramajo" />
-  <title>¿Qué País soy?</title>
+  <link rel="icon" type="image/png" href="./images/" sizes="32x32" />
+  <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16" />
+  <title>Adivina la bandera</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css"/>
 </head>
@@ -29,17 +31,19 @@
     </div>
 
     <nav class="container-fluid">
-      <p class="font-arial">Elegir dificultad</p>
+      <!-- <p class="font-arial">Elegir dificultad</p> -->
       <ul>
         <li>
-          <button class="font-arial" id="facil" href="#">Fácil</button>
+          <button class="font-arial" id="facil" href="#">
+            Comenzar Juego
+          </button>
         </li>
-        <li>
+        <!-- <li>
           <button class="font-arial" id="medio" href="#">Medio</button>
         </li>
         <li>
           <button class="font-arial" id="dificil" href="#">Díficil</button>
-        </li>
+        </li> -->
       </ul>
     </nav>
   </div>
@@ -154,7 +158,7 @@
         <li class="list-group-item list-group-item-action list-group-item-primary text-dark">2. Al selecionar la opción incorrecta, se te restarán 5pts, siendo 0 el puntaje mínimo.</li>
         <li class="list-group-item list-group-item-action list-group-item-primary text-dark">3. Tienes un total de 3 vidas.</li>
         <li class="list-group-item list-group-item-action list-group-item-primary text-dark">4. Al selecionar 3 opciones incorrecta perderás una vida.</li>
-        <li class="list-group-item list-group-item-action list-group-item-primary text-dark">5. Al completar los 3 niveles, verás tu puntaje final.</li>
+        <li class="list-group-item list-group-item-action list-group-item-primary text-dark">5. Al completar los 3 niveles, verás tu posición final en el Ranking.</li>
       </ol>
     </section>
 

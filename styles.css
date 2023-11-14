@@ -42,7 +42,7 @@ img {
   color: rgb(245, 245, 245);
   display: block;
 }
-nav,
+/* nav, */
 aside,
 #main {
   background-color: #F1EFEF;
@@ -96,7 +96,7 @@ footer {
   background-position: center;
   background-repeat: repeat-x;
 }
-nav,
+/* nav, */
 aside {
   background-size: cover;
   background-position: center;
@@ -133,8 +133,8 @@ nav {
   height: 160px;
   padding: 1.8rem 0;
   position: relative;
-  border-bottom: 2px solid #dcdcdc;
-  background-image: url(./images/navbar-bg.jpg);   
+  /* border-bottom: 2px solid #dcdcdc; */
+  /* background-image: url(./images/navbar-bg.jpg);    */
 }
 nav p {
   font-size: 2.8rem;
@@ -180,7 +180,7 @@ nav #dificil {
 #facil, 
 #medio,
 #dificil {
-  max-width: 90px;
+  max-width: 160px;
   font-weight: bold;
   font-size: 2.2rem;
   padding: 1rem;
@@ -359,6 +359,7 @@ main {
 #interfaz-bandera {
   height: auto;
   padding: 1rem;
+  /* background-color: #F1EFEF; */
 }
 article {
   display: inline-block;
@@ -370,6 +371,8 @@ article {
 }
 #contenedorBandera {
   text-align: center;
+  min-height: 400px;
+  height: 100%;
 }
 #reloadGame {
   margin: 0 auto;
@@ -386,7 +389,7 @@ article {
 }
 #interfaz-bandera img {
   display: block;
-  /* height: 280px; */
+  height: 280px;
   max-width: 400px;
   margin: 0 auto;
   border-radius: 1rem;
