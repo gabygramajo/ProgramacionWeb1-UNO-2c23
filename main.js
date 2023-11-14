@@ -12,93 +12,83 @@ const modal = document.getElementById("ventana-modal");
 const BBDD_countries = {
   facil : {
     country1: {
-      name: "uruguay",
-      op_correct: "uruguay",
-      options: ["argentina", "honduras", "escocia", "uruguay"] ,
-      tracks: "🥩 🧉 ⚽"
+      name: "mexico",
+      op_correct: "mexico",
+      options: ["argentina", "honduras", "escocia", "mexico"] ,
     },
     country2: {
       name: "colombia",
       op_correct: "colombia",
       options: ["honduras", "colombia", "ucrania", "nigeria"],
-      tracks: "☕ 💃🏼 🥑"
     },
     country3: {
       name: "chile",
       op_correct: "chile",
       options: ["chile", "sudán", "venezuela", "canadá"] ,
-      tracks: "🍇 🍤 🏔️"
     },
     country4: {
       name: "brazil",
       op_correct: "brasil",
       options: ["nigeria", "francia", "brasil", "rusia"] ,
-      tracks: "💃🏼 ⚽ 🏝️ 🎉"
     },
     country5: {
       name: "united States",
       op_correct: "estados unidos",
       options: ["nicaragua", "yemen", "méxico", "estados unidos"] ,
-      tracks: "🍔 🗽 🎃 🏈"
     },
   },
   medio : {
     country1: {
-      name: "canada",
-      op_correct: "canada",
-      options: ["ecuador", "canada", "escocia", "rusia"] ,
-      tracks: "⛷️ 🏒 🏔️"
+      name: "guatemala",
+      op_correct: "guatemala",
+      options: ["honduras", "guatemala", "el salvador", "nicaragua"] ,
     },
     country2: {
-      name: "france",
-      op_correct: "francia",
-      options: ["portugal", "chipre", "francia", "camerú"],
-      tracks: "🗼 🎭 💄"
+      name: "morocco",
+      op_correct: "marruecos",
+      options: ["portugal", "chipre", "marruecos", "vietnam"],
     },
     country3: {
-      name: "united kingdom",
-      op_correct: "reino unido",
-      options: ["reino unido", "bolivia", "costa rica", "noruega"] ,
-      tracks: "🏰 👑 💂🏼‍♂️"
+      name: "algeria",
+      op_correct: "argelia",
+      options: ["argelia", "hungría", "túñez", "angola"] ,
     },
     country4: {
-      name: "russia",
-      op_correct: "rusia",
-      options: ["taiwan", "rusia", "rumania", "españa"] ,
-      tracks: "🐻"
+      name: "norway",
+      op_correct: "noruega",
+      options: ["finlandoa", "noruega", "islandia", "españa"] ,
     },
     country5: {
-      name: "italy",
-      op_correct: "italia",
-      options: ["malasia", "mexico", "irlanda", "italia"] ,
-      tracks: "🍕🍝"
+      name: "slovakia",
+      op_correct: "eslovaquia",
+      options: ["eslovenia", "serbia", "irlanda", "eslovaquia"] ,
     },
   },
   dificil : {
     country1: {
-      name: "nigeria",
-      op_correct: "nigeria",
-      options: ["nigeria", "sudán", "jamaica", "haití"] ,
+      name: "guyana",
+      op_correct: "guyana",
+      options: ["guyana", "surinam", "jamaica", "haití"] ,
     },
     country2: {
-      name: "portugal",
-      op_correct: "portugal",
-      options: ["reino unido", "italia", "portugal", "china"],
+      name: "puerto rico",
+      op_correct: "puerto rico",
+      options: ["costa rica", "cuba", "puerto rico", "chile"],
     },
     country3: {
-      name: "switzerland",
-      op_correct: "suiza",
-      options: ["suiza", "canada", "autria", "polonia"] ,
+      name: "ghana",
+      op_correct: "ghana",
+      options: ["ghana", "senegal", "camerún", "burkina faso"] ,
     },
     country4: {
-      name: "greece",
-      op_correct: "grecia",
-      options: ["paises bajos", "irlanda", "grecia", "suecia"] ,
+      name: "ivory Coast",
+      op_correct: "costa de marfil",
+      options: ["irlanda", "guinea", "costa de marfil", "rumania"] ,
     },
     country5: {
-      name: "estonia",
-      op_correct: "estonia",
-      options: ["eslovenia", "estonia", "serbia", "lituania"] ,
+      name: "indonesia",
+      op_correct: "indonesia",
+      options: ["singapur", "polonia", "indonesia", "líbano"] ,
     },
   }
 }

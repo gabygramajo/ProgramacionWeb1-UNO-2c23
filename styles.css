@@ -241,7 +241,7 @@ button#ingresarNickname:hover,
   color: white;
 }
 .ranking {
-  margin: 2rem 0;
+  margin: 0 0 1rem;
   max-height: 192px;
   /* overflow-y: scroll; */
 }
@@ -259,12 +259,18 @@ button#ingresarNickname:hover,
   text-transform: capitalize;
 }
 .ranking th {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   background-color: #94e802;
   color: #12486b;
 }
+#contenedorBandera .ranking th {
+  font-size: 2rem;
+}
 .ranking td {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+}
+#contenedorBandera  .ranking td {
+  font-size: 1.8rem;
 }
 .ranking table .primer-puesto td{
   background-color: #e7e70b;
@@ -280,6 +286,9 @@ button#ingresarNickname:hover,
   text-transform: uppercase;
   text-decoration: underline;
   color: #2f81bd;
+}
+#reset-game {
+  margin: 0 auto;
 }
 /* -------- ventana-modal -------- */
 #ventana-modal {
