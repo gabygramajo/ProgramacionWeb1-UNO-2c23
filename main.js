@@ -459,7 +459,7 @@ function startNextLevel(e) {
 }
 
 function updateRanking() {
-  let ranking = `<p>No lograste entrar en el ranking top 3, vuelve a intentarlo y supérate.</p>`;
+  let ranking = `<p>No lograste entrar en el top 3 del ranking, vuelve a intentarlo y supérate.</p>`;
 
   if(currentPlayer.score >= BBDD_players[2].score) {
     BBDD_players.sort((a, b) => b.score - a.score)
